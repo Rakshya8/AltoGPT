@@ -122,6 +122,6 @@ Expected output:
 
 ## Documentation
 
-Refer to [`TECHNICAL_DOC.pdf`]([./TECHNICAL_DOC.md](/Documentation.pdf)) for detailed architecture, agent behavior, deployment notes, and diagrams.
+Refer to [`TECHNICAL_DOC.pdf`]([./Documentation.pdf]) for detailed architecture, agent behavior, deployment notes, and diagrams.
 
 
