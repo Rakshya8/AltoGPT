@@ -122,6 +122,7 @@ Expected output:
 
 ## Documentation
 
-Refer to [`TECHNICAL_DOC.pdf`]([/Documentation.pdf]) for detailed architecture, agent behavior, deployment notes, and diagrams.
+Refer to [`TECHNICAL_DOC.pdf`](https://github.com/Rakshya8/AltoGPT/blob/master/Documentation.pdf) for detailed architecture, agent behavior, deployment notes, and diagrams.
+
 
 
