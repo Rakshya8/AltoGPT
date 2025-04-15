@@ -1,0 +1,51 @@
+services:
+  backend:
+    build: ./backend
+    runtime: nvidia
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: 1
+    entrypoint: uvicorn main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - triton
+    # environment:
+    #   - TRITON_URL=http://triton:8000
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  # triton:
+  #   build:
+  #     context: ./triton
+  #     args:
+  #       HUGGINGFACE_HUB_TOKEN: ${HUGGINGFACE_HUB_TOKEN}
+  #   runtime: nvidia
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             capabilities: [gpu]
+  #             count: 1
+  #   volumes:
+  #     - ./.env:/opt/.env
+  #     - ./hf_cache:/hf_cache
+  #     - ./models:/models
+  #   ports:
+  #     - "8000:8000"  # HTTP
+  #     - "8001:8001"  # gRPC
+  #     - "8002:8002"  # Metrics

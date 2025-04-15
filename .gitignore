@@ -1,0 +1,10 @@
+.env
+
+triton/
+hf_cache/
+notebook/
+models/
+data/
+
+__pycache__/
+node_modules/
